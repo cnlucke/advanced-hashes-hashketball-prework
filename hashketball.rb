@@ -196,7 +196,7 @@ def big_shoe_rebounds
         players.each do |player_name, stats|
           if largest.empty?
             largest << player_name
-          elsif shoe_size(player_name) > shoe_size(largest[0])
+          elsif shoe_size(player_name) > shoe_size(largest)
             largest = player_name
           end
         end
