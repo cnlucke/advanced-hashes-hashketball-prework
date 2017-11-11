@@ -277,7 +277,7 @@ def winning_team
       end
       puts "#{team} scored #{points} points!"
 
-      if most_points.empty?
+      if most_points.empty? && points != 0
         puts "#{team} scored #{points} points!"
         most_points = team
         points_team1 = points
