@@ -204,7 +204,6 @@ def big_shoe_rebounds
     end
   end
 
-puts largest
   rebounds = 0
 
   game_hash.each do |location, team_data|
@@ -225,4 +224,24 @@ puts largest
 
   rebounds
 
+end
+
+#returns true if the player with the longest name had the most steals
+def long_name_steals_a_ton?
+  #find longest name
+  longest = ""
+
+  game_hash.each do |location, team_data|
+    team_data.each do |team_attribute, players|
+      if team_attribute == :players
+        players.each do |player_name, stats|
+          if longest.empty?
+            longest << player_name
+          elsif shoe_size(player_name) > shoe_size(longest)
+            longest = player_name
+          end
+        end
+      end
+    end
+  end
 end
