@@ -253,6 +253,40 @@ def most_points_scored
   end
   most_points
 end
+
+def winning_team
+  points = 0
+  points_team1 = 0
+  team = ""
+  most_points = ""
+  winner = ""
+
+  game_hash.each do |location, team_data|
+    team_data.each do |team_attribute, attribute_value|
+      if team_attribute == :team_name
+        team = attribute_value
+      end
+      if team_attribute == :players
+        players.each do |player_name, stats|
+          stats.each do |stat_type, stat_value|
+            if stat_type == :points
+              points += stat_value
+            end
+          end
+        end
+      end
+    
+      if most_points.empty?
+        most_points = team
+        points_team1 = points
+      elsif points_team1 > points
+        winner = most_points
+      else
+        winner = team
+    end
+  end
+  winner
+end
 #returns true if the player with the longest name had the most steals
 def long_name_steals_a_ton?
   #find longest name
