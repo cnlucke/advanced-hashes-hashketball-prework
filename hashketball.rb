@@ -275,6 +275,7 @@ def winning_team
           end
         end
       end
+      puts "#{team} scored #{points} points!"
 
       if most_points.empty?
         puts "#{team} scored #{points} points!"
