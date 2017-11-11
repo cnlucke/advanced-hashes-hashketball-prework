@@ -195,7 +195,7 @@ def big_shoe_rebounds
       if team_attribute == :players
         players.each do |player_name, stats|
           if largest.empty?
-            largest << player_name
+            largest = player_name
           elsif shoe_size(player_name) > shoe_size(largest)
             largest = player_name
           end
