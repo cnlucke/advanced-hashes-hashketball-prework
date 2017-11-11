@@ -275,7 +275,8 @@ def winning_team
           end
         end
       end
-
+      puts team
+      puts points
       if most_points.empty?
         most_points = team
         points_team1 = points
