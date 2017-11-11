@@ -271,6 +271,6 @@ def long_name_steals_a_ton?
     end
   end
 
-  highest_steals
+  highest_steals == longest
 
 end
