@@ -266,7 +266,6 @@ def winning_team
       if team_attribute == :team_name
         team = attribute_value
       end
-      points = 0
       if team_attribute == :players
         attribute_value.each do |player_name, stats|
           stats.each do |stat_type, stat_value|
@@ -276,12 +275,14 @@ def winning_team
           end
         end
       end
-      puts team
-      puts points
+
       if most_points.empty?
         most_points = team
         points_team1 = points
+        points = 0
+        puts "#{most_points} scored #{points_team1} points!"
       elsif points_team1 > points
+        puts "#{team} scored #{points} points!"
         winner = most_points
       else
         winner = team
