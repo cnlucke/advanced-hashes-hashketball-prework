@@ -289,8 +289,8 @@ def winning_team
   end
   winner
 end
-#returns true if the player with the longest name had the most steals
-def long_name_steals_a_ton?
+
+def player_with_longest_name
   #find longest name
   longest = ""
 
@@ -307,6 +307,10 @@ def long_name_steals_a_ton?
       end
     end
   end
+  longest
+end
+#returns true if the player with the longest name had the most steals
+def long_name_steals_a_ton?
 
   #find the most steals
   steals = 0
@@ -334,6 +338,6 @@ def long_name_steals_a_ton?
     end
   end
 
-  highest_steals == longest
+  highest_steals == player_with_longest_name
 
 end
