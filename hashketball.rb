@@ -267,7 +267,7 @@ def winning_team
         team = attribute_value
       end
       if team_attribute == :players
-        players.each do |player_name, stats|
+        attribute_value.each do |player_name, stats|
           stats.each do |stat_type, stat_value|
             if stat_type == :points
               points += stat_value
