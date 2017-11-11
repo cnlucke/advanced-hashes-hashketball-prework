@@ -275,16 +275,12 @@ def winning_team
           end
         end
       end
-      puts "#{team} scored #{points} points!"
 
       if most_points.empty? && points != 0
-        puts "#{team} scored #{points} points!"
         most_points = team
         points_team1 = points
         points = 0
-        puts "#{most_points} scored #{points_team1} points!"
       elsif points_team1 > points
-        puts "#{team} scored #{points} points!"
         winner = most_points
       else
         winner = team
