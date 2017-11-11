@@ -226,6 +226,33 @@ def big_shoe_rebounds
 
 end
 
+def most_points_scored
+  points = 0
+  player = ""
+  most_points = ""
+
+  game_hash.each do |location, team_data|
+    team_data.each do |team_attribute, players|
+      if team_attribute == :players
+        players.each do |player_name, stats|
+          player = player_name
+          stats.each do |stat_type, stat_value|
+            if stat_type == :points
+              if points == 0
+                points = stat_value
+                most_points = player
+              elsif stat_value > points
+                points = stat_value
+                most_points = player
+              end
+            end
+          end
+        end
+      end
+    end
+  end
+  most_points
+end
 #returns true if the player with the longest name had the most steals
 def long_name_steals_a_ton?
   #find longest name
