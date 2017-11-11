@@ -237,11 +237,40 @@ def long_name_steals_a_ton?
         players.each do |player_name, stats|
           if longest.empty?
             longest << player_name
-          elsif shoe_size(player_name) > shoe_size(longest)
+          elsif player_name.size > longest.size
             longest = player_name
           end
         end
       end
     end
   end
+
+  #find the most steals
+  steals = 0
+  player = ""
+  highest_steals = ""
+
+  game_hash.each do |location, team_data|
+    team_data.each do |team_attribute, players|
+      if team_attribute == :players
+        players.each do |player_name, stats|
+          player = player_name
+          stats.each do |stat_type, stat_value|
+            if stat_type == :steals
+              if steals == 0
+                steals = stat_value
+                highest_steals = player
+              elsif stat_value > steals
+                steals = stat_value
+                highest_steals = player
+              end
+            end
+          end
+        end
+      end
+    end
+  end
+
+  rebounds
+
 end
